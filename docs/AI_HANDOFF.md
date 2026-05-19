@@ -1,48 +1,64 @@
 # AI Handoff Guide
 
-This document is written for people who want to use an AI coding assistant to run, customize, or deploy this repository.
+**Language:** English | [中文](AI_HANDOFF.zh-CN.md)
 
+Use this file when handing `scrapbook-diary` to an AI coding assistant. It gives the assistant enough context to make useful changes without depending on private deployment history.
 
-## How to use this repo with an AI coding assistant
+## First 15 Minutes
 
-Give the assistant three things at the start of a new thread:
+1. Read `README.md`, this file, and `docs/DEPLOYMENT.md`.
+2. Inspect the repository layout table in `README.md`.
+3. Run the validation command before editing anything substantial.
+4. Confirm whether the task is documentation, tests, local deployment, or product code.
+5. Keep all private credentials, state, media, and production data outside the repository.
 
-1. This repository URL.
-2. The target environment: local development, Docker, NAS, VPS, or another host.
-3. Which path you want: quick demo, production deployment, feature change, bug fix, or integration.
+## Project Summary
 
-Suggested prompt:
+Scrapbook Diary is a Vite + React application for composing visual diary entries, social-post drafts, or lightweight content boards. Images, captions, topics, cover choices, and draft metadata are stored in the browser with IndexedDB.
+
+## Important Paths
+
+| Path | Purpose |
+|---|---|
+| `src/App.tsx` | Main React editor experience |
+| `src/storage.ts` | IndexedDB persistence helpers |
+| `public/` | Static assets |
+| `server.mjs` | Lightweight local static server |
+| `docker-compose.example.yml` | Example container deployment |
+
+## Good First Tasks
+
+- Add export/import for local drafts
+- Add browser storage migration tests
+- Improve mobile editor ergonomics
+- Add Playwright smoke tests for upload and preview flows
+
+## Context To Provide To An AI Assistant
+
+- The repository URL and branch.
+- Your operating system and runtime versions.
+- The exact command that fails or the exact workflow you want improved.
+- Sanitized logs with secrets removed.
+- Whether you are using local development, Docker, or manual deployment.
+- Any constraints around privacy, public sharing, or supported platforms.
+
+## Suggested Prompt
 
 ```text
-Read README.md, docs/DEPLOYMENT.md, docs/AI_HANDOFF.md, and docs/ROADMAP.md first.
-My target is <local Docker / Linux server / NAS / cloud VM>.
-Help me get this project running end to end, preserve secrets in .env, and tell me exactly what values I need to provide.
+You are working in the scrapbook-diary repository. Read README.md, docs/DEPLOYMENT.md, and docs/AI_HANDOFF.md first. Keep changes small, preserve public-safe examples, do not add real secrets, and run the documented validation command before summarizing changes.
 ```
-
-
-## Project summary
-
-Local-first image diary editor built with React, Vite, and IndexedDB.
-
-## Good first tasks for an AI assistant
-
-- Add screenshots and a demo section
-- Add export/import for local drafts
-- Add cloud sync while keeping local-first behavior
-- Improve mobile crop ergonomics
-
-## Context to provide to the assistant
-
-- Operating system and CPU architecture.
-- Whether Docker is available.
-- Whether this is local-only or exposed through a reverse proxy.
-- Which secrets or API keys you will provide through `.env`.
-- Any real data paths, but do not paste secrets into chat unless you accept that risk.
 
 ## Guardrails
 
-- Do not commit `.env`, cookies, tokens, databases, uploads, logs, or generated build artifacts.
-- Prefer editing `.env.example` for documentation and `.env` only locally.
-- Keep deployment-specific paths out of source code.
-- Run the checks listed in `docs/DEPLOYMENT.md` before committing changes.
+- Do not add private `.env` values, API keys, cookies, webhook secrets, local IP addresses, production URLs, personal records, or generated artifacts.
+- Prefer focused tests over broad rewrites.
+- Keep public examples generic and runnable on a clean machine.
+- Update both English and Chinese docs when changing user-facing instructions.
+- If deployment behavior changes, update `docs/DEPLOYMENT.md` and `docs/DEPLOYMENT.zh-CN.md` in the same change.
 
+## Definition Of Done
+
+- The requested behavior or documentation change is complete.
+- Validation commands pass, or any skipped check is explicitly explained.
+- README links still work.
+- No private data or generated artifacts are committed.

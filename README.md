@@ -1,37 +1,37 @@
 # Scrapbook Diary
 
-[English](README.md) | [中文](README.zh-CN.md)
+[![CI](https://github.com/czgreat/scrapbook-diary/actions/workflows/ci.yml/badge.svg)](https://github.com/czgreat/scrapbook-diary/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Scrapbook Diary is a local-first visual diary editor inspired by image-heavy social publishing tools. It is designed for drafting rich daily posts without a backend: images, captions, topics, layout choices, and publishing metadata stay in the browser.
+**Language:** English | [中文](README.zh-CN.md)
 
+Local-first visual diary editor for drafting image-rich daily posts without running a backend.
 
-## AI-assisted development
+## Overview
 
-This public release was prepared with Codex using GPT-5.4 and GPT-5.5 assistance. The code, documentation, and release cleanup were reviewed for public sharing, but the project is community-maintained and is not an official OpenAI product.
+Scrapbook Diary is a Vite + React application for composing visual diary entries, social-post drafts, or lightweight content boards. Images, captions, topics, cover choices, and draft metadata are stored in the browser with IndexedDB.
 
-
-## Highlights
+## Key Features
 
 - Calendar-driven daily entry workflow
-- Multi-image upload, ordering, and cover selection
-- Cover ratio presets: `3:4`, `1:1`, `4:5`, and `9:16`
-- Direct crop/position/zoom controls in the preview area
-- Draft fields for title, body, topics, location, visibility, and scheduled time
-- Browser-local persistence with IndexedDB
-- Vite + React implementation with a static production build
+- Multi-image upload, ordering, cover selection, and preview
+- Cover ratio presets for common publishing formats
+- Crop, position, and zoom controls in the editor
+- Browser-local persistence with no required remote database
 
-## Architecture
+## Current Public Release
 
-```text
-src/
-  App.tsx        Main editor experience
-  storage.ts     IndexedDB persistence helpers
-  App.css        Product styling and layout
-public/          Static assets
-server.mjs       Lightweight local static server
-```
+Ready to use:
 
-The app does not require a remote database. It is suitable for local writing workflows, demos, and static hosting.
+- Run locally with `npm run dev`
+- Build static assets with `npm run build`
+- Serve with the provided Docker/Nginx example
+- Use as a private local drafting tool
+
+You must provide locally:
+
+- A modern Node.js runtime and npm
+- A browser profile where local drafts can be stored
+- Your own image assets; do not commit private media
 
 ## Quick Start
 
@@ -40,36 +40,66 @@ npm install
 npm run dev
 ```
 
-Build:
+For Python projects on Windows, activate the virtual environment with `.venv\Scripts\Activate.ps1` instead of `. .venv/bin/activate`.
 
-```bash
-npm run build
-```
-
-Preview a production build:
-
-```bash
-npm run preview
-```
-
-## Docker
+## Docker Deployment
 
 ```bash
 cp docker-compose.example.yml docker-compose.yml
 docker compose up --build
 ```
 
-## Privacy
+## Manual Deployment
 
-Drafts are stored in the browser. Clearing site data removes local drafts. Do not use this repository to commit personal media or generated `dist/` output.
+- Run `npm run build` to create `dist/`.
+- Serve `dist/` with any static web server.
+- Use HTTPS in production if the workflow is exposed beyond localhost.
+
+## Configuration
+
+- No server-side configuration is required for the default local workflow.
+- Browser data is local to the site origin. Changing hostnames or clearing site data can make drafts unavailable.
+
+## Validation
+
+```bash
+npm run lint --if-present
+npm run build
+```
+
+## Repository Layout
+
+| Path | Purpose |
+|---|---|
+| `src/App.tsx` | Main React editor experience |
+| `src/storage.ts` | IndexedDB persistence helpers |
+| `public/` | Static assets |
+| `server.mjs` | Lightweight local static server |
+| `docker-compose.example.yml` | Example container deployment |
+
+## Documentation
+
+| Topic | English | Chinese |
+|---|---|---|
+| Deployment | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | [docs/DEPLOYMENT.zh-CN.md](docs/DEPLOYMENT.zh-CN.md) |
+| AI handoff | [docs/AI_HANDOFF.md](docs/AI_HANDOFF.md) | [docs/AI_HANDOFF.zh-CN.md](docs/AI_HANDOFF.zh-CN.md) |
+| Roadmap | [docs/ROADMAP.md](docs/ROADMAP.md) | [docs/ROADMAP.zh-CN.md](docs/ROADMAP.zh-CN.md) |
+
+## AI-Assisted Development
+
+This public release was prepared with Codex using GPT-5.4 and GPT-5.5 assistance. The source code, docs, and public-release cleanup were reviewed for public sharing, but this is a community project and not an official OpenAI product.
+
+Good next tasks for an AI coding assistant:
+
+- Add export/import for local drafts
+- Add browser storage migration tests
+- Improve mobile editor ergonomics
+- Add Playwright smoke tests for upload and preview flows
+
+## Privacy and Secrets
+
+Do not commit real `.env` files, API keys, webhook secrets, cookies, private media, production databases, logs, generated artifacts, or personal data. Start from the example config files and keep private values outside Git.
 
 ## License
 
 MIT
-
-## More documentation
-
-- [Deployment guide](docs/DEPLOYMENT.md)
-- [AI handoff guide](docs/AI_HANDOFF.md)
-- [Roadmap](docs/ROADMAP.md)
-

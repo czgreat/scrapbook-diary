@@ -1,51 +1,70 @@
 # Deployment Guide
 
-Local-first image diary editor built with React, Vite, and IndexedDB.
+**Language:** English | [中文](DEPLOYMENT.zh-CN.md)
 
-## What is already usable
+This guide explains how to run `scrapbook-diary` locally, in Docker, or with a manual service setup. It assumes you cloned the GitHub repository and are working from the repository root.
 
-- Runs locally with Node.js and npm
-- Can be built as a static site
-- Can run through Docker/Nginx using the example compose file
-- No backend or database is required
+## What Is Already Usable
 
-## What you must provide
+- Run locally with `npm run dev`
+- Build static assets with `npm run build`
+- Serve with the provided Docker/Nginx example
+- Use as a private local drafting tool
 
-- Real screenshots for the README if you want a polished GitHub landing page
-- Optional hosted demo URL
-- Optional export/sync feature if cross-device drafts are required
+## What You Must Provide
 
-## Local development
+- A modern Node.js runtime and npm
+- A browser profile where local drafts can be stored
+- Your own image assets; do not commit private media
+
+## Local Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Validation checks
+If the command uses `. .venv/bin/activate`, use `.venv\Scripts\Activate.ps1` on Windows PowerShell.
 
-```bash
-npm run lint --if-present
-npm run build
-```
-
-## Docker deployment
+## Docker Deployment
 
 ```bash
 cp docker-compose.example.yml docker-compose.yml
 docker compose up --build
 ```
 
-## Manual deployment
+Before running Docker, review every bind mount and every value in `.env`. Example compose files are intentionally generic and should be adjusted to your host paths and ports.
 
-Build with `npm run build`, then serve the generated `dist/` directory from any static web server such as Nginx, Caddy, GitHub Pages, or Cloudflare Pages.
+## Manual Deployment
 
-## Production checklist
+- Run `npm run build` to create `dist/`.
+- Serve `dist/` with any static web server.
+- Use HTTPS in production if the workflow is exposed beyond localhost.
 
-- Keep `.env` private and never commit it.
-- Replace all placeholder secrets before exposing the service.
-- Mount runtime data outside the repository.
-- Put the service behind HTTPS if it is reachable from other machines.
-- Back up persistent data before upgrades.
-- Review logs after the first startup.
+## Configuration Checklist
 
+- No server-side configuration is required for the default local workflow.
+- Browser data is local to the site origin. Changing hostnames or clearing site data can make drafts unavailable.
+
+## Validation Checks
+
+```bash
+npm run lint --if-present
+npm run build
+```
+
+## Production Checklist
+
+- Replace all placeholder secrets before real use.
+- Keep private config, generated data, logs, uploaded media, and generated artifacts outside Git.
+- Put the service behind a reverse proxy with HTTPS if it is reachable from other devices.
+- Add authentication before exposing private APIs beyond localhost.
+- Configure backups for any database, state directory, uploaded files, and generated artifacts.
+- Read `SECURITY.md` before reporting or triaging security issues.
+
+## Troubleshooting
+
+- Re-check `.env` and volume paths first; most deployment failures are path or permission issues.
+- Use the health endpoint listed in `README.md` to separate process startup issues from application behavior.
+- Run the validation commands before changing deployment infrastructure.
+- When asking an AI assistant for help, include OS, runtime versions, exact command, sanitized logs, and deployment mode.

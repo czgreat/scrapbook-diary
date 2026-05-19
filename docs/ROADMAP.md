@@ -1,30 +1,38 @@
 # Roadmap
 
-This public release is a cleaned, source-focused baseline. It is intended to be usable by developers, but each deployment still needs local configuration.
+**Language:** English | [中文](ROADMAP.zh-CN.md)
 
-## Complete enough to use
+This roadmap describes the public repository state for `scrapbook-diary`. It separates what is ready to use from what each user should complete in their own environment.
 
-- Runs locally with Node.js and npm
-- Can be built as a static site
-- Can run through Docker/Nginx using the example compose file
-- No backend or database is required
+## Complete Enough To Use
 
-## Needs local completion
+- Visual diary drafting
+- Static deployment
+- Browser-local persistence
 
-- Real screenshots for the README if you want a polished GitHub landing page
-- Optional hosted demo URL
-- Optional export/sync feature if cross-device drafts are required
+## Needs Local Completion
 
-## Suggested improvements
+- Optional cloud sync if multi-device editing is needed
+- Export/import format for backups
+- Accessibility review for keyboard-only workflows
 
-- Add screenshots and a demo section
+## Suggested Improvements
+
 - Add export/import for local drafts
-- Add cloud sync while keeping local-first behavior
-- Improve mobile crop ergonomics
+- Add browser storage migration tests
+- Improve mobile editor ergonomics
+- Add Playwright smoke tests for upload and preview flows
 
-## Documentation still worth adding
+## Documentation Still Worth Adding
 
-- Real screenshots or short demo videos.
-- A known-good production deployment example for a generic Linux host.
-- Troubleshooting notes collected from real user deployments.
+- Screenshots or short screen recordings using non-private demo data.
+- A fuller API example page for common requests and responses.
+- Backup and restore notes for any persistent data path.
+- A troubleshooting page based on real public issues once users start deploying it.
 
+## Maintenance Notes
+
+- Keep public examples generic.
+- Keep English and Chinese instructions aligned.
+- Prefer small issues and pull requests so AI-assisted contributors can work safely.
+- Re-run sensitive-data scans before publishing new releases.
