@@ -1,0 +1,38 @@
+:root {
+  font-synthesis: none;
+  --ink: #5f4b2d;
+  --ink-soft: #8a7e6b;
+  --line-soft: rgba(95, 75, 45, 0.12);
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+button,
+textarea,
+input {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+}
