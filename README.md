@@ -18,6 +18,18 @@ Scrapbook Diary is a Vite + React application for composing visual diary entries
 - Crop, position, and zoom controls in the editor
 - Browser-local persistence with no required remote database
 
+## Who This Is For
+
+- People who want a private visual writing/drafting tool
+- Frontend developers looking for a compact React + IndexedDB example
+- Self-hosters who prefer static apps with minimal backend surface
+
+## Not For
+
+- Multi-device collaboration without adding a sync service
+- A hosted social network or publishing platform
+- A place to commit personal photos into Git
+
 ## Current Public Release
 
 Ready to use:
@@ -82,8 +94,11 @@ npm run build
 | Topic | English | Chinese |
 |---|---|---|
 | Deployment | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | [docs/DEPLOYMENT.zh-CN.md](docs/DEPLOYMENT.zh-CN.md) |
+| Usage/API examples | [docs/USAGE_EXAMPLES.md](docs/USAGE_EXAMPLES.md) | [docs/USAGE_EXAMPLES.zh-CN.md](docs/USAGE_EXAMPLES.zh-CN.md) |
+| Screenshots | [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md) | [docs/SCREENSHOTS.zh-CN.md](docs/SCREENSHOTS.zh-CN.md) |
 | AI handoff | [docs/AI_HANDOFF.md](docs/AI_HANDOFF.md) | [docs/AI_HANDOFF.zh-CN.md](docs/AI_HANDOFF.zh-CN.md) |
 | Roadmap | [docs/ROADMAP.md](docs/ROADMAP.md) | [docs/ROADMAP.zh-CN.md](docs/ROADMAP.zh-CN.md) |
+| Changelog | [CHANGELOG.md](CHANGELOG.md) | [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md) |
 
 ## AI-Assisted Development
 

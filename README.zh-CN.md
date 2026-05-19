@@ -18,6 +18,18 @@ Scrapbook Diary 是一个 Vite + React 应用，适合编写图文日记、社�
 - 编辑器内调整裁切、位置和缩放
 - 浏览器本地持久化，不依赖远程数据库
 
+## 适合谁
+
+- 需要私有图文写作/草稿工具的用户
+- 想参考 React + IndexedDB 小型项目的前端开发者
+- 偏好静态应用、尽量减少后端面的自托管用户
+
+## 不适合
+
+- 未补同步服务前的多设备协作
+- 托管式社交网络或发布平台
+- 把私人照片提交进 Git 的用途
+
 ## 当前公开版状态
 
 已经可以使用：
@@ -82,8 +94,11 @@ npm run build
 | 主题 | 中文 | English |
 |---|---|---|
 | 部署 | [docs/DEPLOYMENT.zh-CN.md](docs/DEPLOYMENT.zh-CN.md) | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) |
+| 使用/API 示例 | [docs/USAGE_EXAMPLES.zh-CN.md](docs/USAGE_EXAMPLES.zh-CN.md) | [docs/USAGE_EXAMPLES.md](docs/USAGE_EXAMPLES.md) |
+| 截图 | [docs/SCREENSHOTS.zh-CN.md](docs/SCREENSHOTS.zh-CN.md) | [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md) |
 | AI 接手 | [docs/AI_HANDOFF.zh-CN.md](docs/AI_HANDOFF.zh-CN.md) | [docs/AI_HANDOFF.md](docs/AI_HANDOFF.md) |
 | 路线图 | [docs/ROADMAP.zh-CN.md](docs/ROADMAP.zh-CN.md) | [docs/ROADMAP.md](docs/ROADMAP.md) |
+| 更新日志 | [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md) | [CHANGELOG.md](CHANGELOG.md) |
 
 ## AI 辅助开发说明
 
