@@ -67,3 +67,9 @@ Drafts are stored in the browser. Clearing site data removes local drafts. Do no
 
 MIT
 
+## More documentation
+
+- [Deployment guide](docs/DEPLOYMENT.md)
+- [AI handoff guide](docs/AI_HANDOFF.md)
+- [Roadmap](docs/ROADMAP.md)
+
